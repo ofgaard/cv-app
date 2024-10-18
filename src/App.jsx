@@ -19,7 +19,7 @@ function App() {
         >
           {/* Contact header */}
           <div>
-            <Personal></Personal>
+            <Personal darkMode={darkMode}></Personal>
           </div>
           {/* Experience section */}
           <div></div>
