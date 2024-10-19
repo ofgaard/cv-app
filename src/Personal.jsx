@@ -27,9 +27,9 @@ export default function Personal({ darkMode }) {
       <div className="flex flex-col items-center gap-7">
         {/* Name and edit button */}
         <div className="flex flex-col items-center gap-1 relative">
-          <button className="" onClick={toggleEditMode}>
+          {/* <button className="" onClick={toggleEditMode}>
             {!editMode ? <CiEdit size={30}></CiEdit> : "done"}
-          </button>
+          </button> */}
           <h1 className="text-5xl sm:text-6xl font-extrabold">
             {!editMode ? (
               contacts.Name

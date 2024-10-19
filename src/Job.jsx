@@ -37,7 +37,7 @@ export default function Job({
     <>
       <div
         className={`flex flex-col gap-5 ${
-          darkMode ? "bg-neutral-700" : "bg-neutral-300"
+          darkMode ? "bg-neutral-700" : "border border-slate-800"
         } p-5 rounded-md`}
       >
         {/* Top label/icons */}
@@ -50,6 +50,8 @@ export default function Job({
             <button
               className={`rounded-md min-w-16 text-xs px-1.5 py-1 bg-emerald-800 ${
                 submitMode === 1 && "bg-yellow-700"
+              } ${
+                !darkMode && "text-neutral-200"
               } shadow-md font-semibold transition-colors duration-200 border border-transparent border- hover:scale-105 hover:border-neutral-200`}
               onClick={
                 submitMode !== 1

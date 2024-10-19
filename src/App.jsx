@@ -2,7 +2,8 @@ import { useState } from "react";
 import Personal from "./Personal";
 import Job from "./Job";
 import Education from "./Education";
-import { CgDarkMode } from "react-icons/cg";
+import Nav from "./Nav";
+import { FaRegFilePdf } from "react-icons/fa6";
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -106,51 +107,54 @@ function App() {
             : "bg-neutral-200 text-slate-800"
         } overflow-auto`}
       >
-        {" "}
         <div
           className={`${
             darkMode ? "bg-neutral-800" : "bg-neutral-200"
-          } h-screen flex flex-col overflow-auto print:text-black min-w-96 max-w-3xl mx-auto gap-4 p-5`}
+          } min-h-screen print:text-black`}
         >
-          {/* Contact header */}
-          <div className="mb-16">
-            <Personal darkMode={darkMode}></Personal>
-          </div>
-          {/* Job section */}
-          <div>
-            <Job
-              darkMode={darkMode}
-              editMode={editMode}
-              experienceToEdit={experienceToEdit}
-              setExperienceToEdit={setExperienceToEdit}
-              toggleEditMode={toggleEditMode}
-              handleEdit={handleEdit}
-              newExperience={newExperience}
-              setNewExperience={setNewExperience}
-              addExperience={addExperience}
-              handleInput={handleInput}
-              submitMode={submitMode}
-              setSubmitMode={setSubmitMode}
-              deleteExperience={deleteExperience}
-            ></Job>
-          </div>
-          {/* Education section */}
-          <div>
-            <Education
-              darkMode={darkMode}
-              editMode={editMode}
-              experienceToEdit={experienceToEdit}
-              setExperienceToEdit={setExperienceToEdit}
-              toggleEditMode={toggleEditMode}
-              handleEdit={handleEdit}
-              newExperience={newExperience}
-              setNewExperience={setNewExperience}
-              addExperience={addExperience}
-              handleInput={handleInput}
-              submitMode={submitMode}
-              setSubmitMode={setSubmitMode}
-              deleteExperience={deleteExperience}
-            ></Education>
+          <Nav darkMode={darkMode} toggleDarkMode={toggleDarkMode}></Nav>
+          <div className="flex flex-col min-w-96 max-w-4xl mx-auto gap-4 p-5">
+            {/* Contact header */}
+            <div className="mb-16">
+              <Personal darkMode={darkMode}></Personal>
+            </div>
+            {/* Job section */}
+            <div>
+              <Job
+                darkMode={darkMode}
+                editMode={editMode}
+                experienceToEdit={experienceToEdit}
+                setExperienceToEdit={setExperienceToEdit}
+                toggleEditMode={toggleEditMode}
+                handleEdit={handleEdit}
+                newExperience={newExperience}
+                setNewExperience={setNewExperience}
+                addExperience={addExperience}
+                handleInput={handleInput}
+                submitMode={submitMode}
+                setSubmitMode={setSubmitMode}
+                deleteExperience={deleteExperience}
+              ></Job>
+            </div>
+            {/* Education section */}
+            <div>
+              <Education
+                darkMode={darkMode}
+                editMode={editMode}
+                experienceToEdit={experienceToEdit}
+                setExperienceToEdit={setExperienceToEdit}
+                toggleEditMode={toggleEditMode}
+                handleEdit={handleEdit}
+                newExperience={newExperience}
+                setNewExperience={setNewExperience}
+                addExperience={addExperience}
+                handleInput={handleInput}
+                submitMode={submitMode}
+                setSubmitMode={setSubmitMode}
+                deleteExperience={deleteExperience}
+              ></Education>
+            </div>
+            <div></div>
           </div>
         </div>
       </div>
