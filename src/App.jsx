@@ -26,6 +26,8 @@ function App() {
     description: "",
   });
 
+  const [submitMode, setSubmitMode] = useState(false);
+
   const toggleEditMode = (list, id) => {
     let itemToEdit = list.find((item) => item.id === id);
     setExperienceToEdit(itemToEdit);
@@ -114,6 +116,8 @@ function App() {
               setNewExperience={setNewExperience}
               addExperience={addExperience}
               handleInput={handleInput}
+              submitMode={submitMode}
+              setSubmitMode={setSubmitMode}
             ></Job>
           </div>
           {/* Education section */}

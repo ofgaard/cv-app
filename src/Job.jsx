@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FcBriefcase } from "react-icons/fc";
 import { CiEdit } from "react-icons/ci";
 import { MdDeleteOutline } from "react-icons/md";
+import { IoIosAdd } from "react-icons/io";
 
 export default function Job({
   darkMode,
@@ -14,6 +15,8 @@ export default function Job({
   addExperience,
   toggleEditMode,
   handleInput,
+  submitMode,
+  setSubmitMode,
 }) {
   const [jobs, setJobs] = useState([
     {
@@ -40,7 +43,11 @@ export default function Job({
             <FcBriefcase></FcBriefcase>
             <h5>Work Experience</h5>
           </div>
-          <div>+</div>
+          <div>
+            <button onClick={() => setSubmitMode((prev) => !prev)}>
+              <IoIosAdd></IoIosAdd>
+            </button>
+          </div>
         </div>
         {jobs.map((job) =>
           job.id !== editMode.id ? (
@@ -72,6 +79,7 @@ export default function Job({
               <div className="max-w-md text-sm">{job.description}</div>
             </div>
           ) : (
+            // Edit mode
             <div key={job.id} className="flex flex-col gap-1">
               {/* First line - job and location */}
               <div className="flex flex-row justify-between">
@@ -145,6 +153,87 @@ export default function Job({
               </div>
             </div>
           )
+        )}
+        {/* Submit mode */}
+        {submitMode && (
+          <div className="flex flex-col gap-1">
+            {/* First line - job and location */}
+            <div className="flex flex-row justify-between">
+              {/* Submit Edit button */}
+              <div className="flex flex-row gap-1">
+                <h4>
+                  <input
+                    className="bg-transparent"
+                    type="text"
+                    name="title"
+                    value={newExperience.title}
+                    onChange={handleInput}
+                    placeholder="Company"
+                  />
+                </h4>
+                <button
+                  onClick={() => {
+                    addExperience(jobs, setJobs);
+                  }}
+                >
+                  Done
+                </button>
+              </div>
+              <h2>
+                <input
+                  className="bg-transparent"
+                  type="text"
+                  name="location"
+                  value={newExperience.location}
+                  onChange={handleInput}
+                  placeholder="Location"
+                />
+              </h2>
+            </div>
+            {/* Second line - Position and start/end date */}
+            <div className="flex flex-row justify-between">
+              <h3>
+                <input
+                  className="bg-transparent"
+                  type="text"
+                  name="positionDegree"
+                  value={newExperience.positionDegree}
+                  onChange={handleInput}
+                  placeholder="Position"
+                />
+              </h3>
+              <p>
+                <input
+                  className="bg-transparent"
+                  type="text"
+                  name="startdate"
+                  value={newExperience.startdate}
+                  onChange={handleInput}
+                  placeholder="Start Date"
+                />{" "}
+                -{" "}
+                <input
+                  className="bg-transparent"
+                  type="text"
+                  name="enddate"
+                  value={newExperience.enddate}
+                  onChange={handleInput}
+                  placeholder="End Date"
+                />
+              </p>
+            </div>
+            {/* Third line - Job description */}
+            <div className="max-w-md text-sm">
+              <input
+                className="bg-transparent"
+                type="text"
+                name="description"
+                placeholder="Description"
+                value={newExperience.description}
+                onChange={handleInput}
+              />
+            </div>
+          </div>
         )}
       </div>
     </>
