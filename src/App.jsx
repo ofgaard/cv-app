@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Personal from "./Personal";
 import Job from "./Job";
+import Education from "./Education";
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -103,10 +104,10 @@ function App() {
         <div
           className={`${
             darkMode ? "bg-neutral-800" : "bg-neutral-200"
-          } h-screen flex flex-col overflow-auto print:text-black min-w-96 max-w-3xl mx-auto gap-12 p-5`}
+          } h-screen flex flex-col overflow-auto print:text-black min-w-96 max-w-3xl mx-auto gap-4 p-5`}
         >
           {/* Contact header */}
-          <div>
+          <div className="mb-16">
             <Personal darkMode={darkMode}></Personal>
           </div>
           {/* Job section */}
@@ -128,7 +129,23 @@ function App() {
             ></Job>
           </div>
           {/* Education section */}
-          <div></div>
+          <div>
+            <Education
+              darkMode={darkMode}
+              editMode={editMode}
+              experienceToEdit={experienceToEdit}
+              setExperienceToEdit={setExperienceToEdit}
+              toggleEditMode={toggleEditMode}
+              handleEdit={handleEdit}
+              newExperience={newExperience}
+              setNewExperience={setNewExperience}
+              addExperience={addExperience}
+              handleInput={handleInput}
+              submitMode={submitMode}
+              setSubmitMode={setSubmitMode}
+              deleteExperience={deleteExperience}
+            ></Education>
+          </div>
         </div>
       </div>
     </>
