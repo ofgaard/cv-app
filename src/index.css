@@ -9,3 +9,14 @@
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
+
+h5 {
+  font-weight: 800;
+}
+
+h4 {
+  font-weight: 600;
+}
+
+h3 {
+}

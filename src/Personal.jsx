@@ -4,7 +4,7 @@ import { FcGlobe } from "react-icons/fc";
 import { FcContacts } from "react-icons/fc";
 import { CiEdit } from "react-icons/ci";
 
-export default function Personal(darkMode) {
+export default function Personal({ darkMode }) {
   const [editMode, setEditMode] = useState(false);
   const toggleEditMode = () => {
     setEditMode((prev) => !prev);
@@ -24,18 +24,18 @@ export default function Personal(darkMode) {
 
   return (
     <>
-      <div className="flex flex-col items-center gap-4">
+      <div className="flex flex-col items-center gap-7">
         {/* Name and edit button */}
-        <div className="flex flex-col items-center gap-1">
+        <div className="flex flex-col items-center gap-1 relative">
           <button className="" onClick={toggleEditMode}>
-            {!editMode ? <CiEdit></CiEdit> : "done"}
+            {!editMode ? <CiEdit size={30}></CiEdit> : "done"}
           </button>
-          <h1 className="text-5xl sm:text-6xl font-semibold">
+          <h1 className="text-5xl sm:text-6xl font-extrabold">
             {!editMode ? (
               contacts.Name
             ) : (
               <input
-                className="bg-neutral-700 rounded-md p-2 max-w-96 text-center"
+                className="bg-transparent rounded-md p-2 max-w-96 text-center"
                 type="text"
                 name="Name"
                 value={contacts.Name}
@@ -55,9 +55,7 @@ export default function Personal(darkMode) {
                 contacts.Phone
               ) : (
                 <input
-                  className={`bg-transparent max-w-96 text-center ${
-                    darkMode ? "bg-neutral-700" : "bg-neutral-400"
-                  } max-h-7 rounded-md p-2`}
+                  className={`bg-transparent max-w-96 text-center  max-h-7 rounded-md p-2`}
                   type="text"
                   name="Phone"
                   value={contacts.Phone}
@@ -75,9 +73,7 @@ export default function Personal(darkMode) {
                 contacts.Email
               ) : (
                 <input
-                  className={`bg-transparent max-w-96 text-center ${
-                    darkMode ? "bg-neutral-700" : "bg-neutral-400"
-                  } max-h-7 rounded-md p-2`}
+                  className={`bg-transparent max-w-96 text-center max-h-7 rounded-md p-2`}
                   type="text"
                   name="Email"
                   value={contacts.Email}
@@ -95,9 +91,7 @@ export default function Personal(darkMode) {
                 contacts.Email
               ) : (
                 <input
-                  className={`bg-transparent max-w-96 text-center ${
-                    darkMode ? "bg-neutral-700" : "bg-neutral-400"
-                  } max-h-7 rounded-md p-2`}
+                  className={`bg-transparent max-w-96 text-center max-h-7 rounded-md p-2`}
                   type="text"
                   name="Location"
                   value={contacts.Location}
