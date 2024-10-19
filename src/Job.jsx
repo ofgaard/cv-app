@@ -3,6 +3,8 @@ import { FcBriefcase } from "react-icons/fc";
 import { CiEdit } from "react-icons/ci";
 import { MdDeleteOutline } from "react-icons/md";
 import { IoIosAdd } from "react-icons/io";
+import { FaCheck } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 
 export default function Job({
   darkMode,
@@ -17,6 +19,7 @@ export default function Job({
   handleInput,
   submitMode,
   setSubmitMode,
+  deleteExperience,
 }) {
   const [jobs, setJobs] = useState([
     {
@@ -33,7 +36,7 @@ export default function Job({
   return (
     <>
       <div
-        className={`flex flex-col gap-3 ${
+        className={`flex flex-col gap-5 ${
           darkMode ? "bg-neutral-700" : "bg-neutral-300"
         } p-5 rounded-md`}
       >
@@ -44,8 +47,13 @@ export default function Job({
             <h5>Work Experience</h5>
           </div>
           <div>
-            <button onClick={() => setSubmitMode((prev) => !prev)}>
-              <IoIosAdd></IoIosAdd>
+            <button
+              className={`rounded-md min-w-16 text-xs px-1.5 py-1 bg-emerald-800 ${
+                submitMode && "bg-yellow-700"
+              } shadow-md font-semibold transition-colors duration-200 border border-transparent border- hover:scale-105 hover:border-neutral-200`}
+              onClick={() => setSubmitMode((prev) => !prev)}
+            >
+              {!submitMode ? "Add ..." : "Cancel"}
             </button>
           </div>
         </div>
@@ -57,26 +65,45 @@ export default function Job({
                 {/* Jobname and edit/delete buttons */}
                 <div className="flex flex-row gap-1">
                   <h4>{job.title}</h4>
-                  <button
-                    onClick={() => {
-                      toggleEditMode(jobs, job.id);
-                    }}
-                  >
-                    Edit
-                  </button>
-                  <button>Delete</button>
                 </div>
                 <h2>{job.location}</h2>
               </div>
               {/* Second line - Position and start/end date */}
               <div className="flex flex-row justify-between">
                 <h3>{job.positionDegree}</h3>
-                <p>
-                  {job.startdate} - {job.enddate}
-                </p>
+                <div>
+                  <div className="flex gap-1 text-xs">
+                    <p>{job.startdate}</p>
+                    <p>-</p>
+                    <p> {job.enddate}</p>
+                  </div>
+                </div>
               </div>
               {/* Third line - Job description */}
-              <div className="max-w-md text-sm">{job.description}</div>
+              <div className="flex justify-between">
+                {" "}
+                <div className="max-w-52 sm:max-w-xs text-sm">
+                  {job.description}
+                </div>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => {
+                      toggleEditMode(jobs, job.id);
+                    }}
+                  >
+                    <CiEdit></CiEdit>
+                  </button>
+                  <button>
+                    <MdDelete
+                      size={20}
+                      onClick={() => {
+                        deleteExperience(job.id, jobs, setJobs);
+                      }}
+                      className="fill-red-700 transition-all duration-200 hover:scale-125"
+                    ></MdDelete>
+                  </button>
+                </div>
+              </div>
             </div>
           ) : (
             // Edit mode
@@ -94,17 +121,10 @@ export default function Job({
                       onChange={handleInput}
                     />
                   </h4>
-                  <button
-                    onClick={() => {
-                      handleEdit(jobs, setJobs);
-                    }}
-                  >
-                    Submit
-                  </button>
                 </div>
                 <h2>
                   <input
-                    className="bg-transparent"
+                    className="bg-transparent text-right"
                     type="text"
                     name="location"
                     value={experienceToEdit.location}
@@ -123,26 +143,25 @@ export default function Job({
                     onChange={handleInput}
                   />
                 </h3>
-                <p>
+                <div className="flex flex-col text-xs">
                   <input
-                    className="bg-transparent"
+                    className="bg-transparent text-right"
                     type="text"
                     name="startdate"
                     value={experienceToEdit.startdate}
                     onChange={handleInput}
                   />{" "}
-                  -{" "}
                   <input
-                    className="bg-transparent"
+                    className="bg-transparent text-right"
                     type="text"
                     name="enddate"
                     value={experienceToEdit.enddate}
                     onChange={handleInput}
                   />
-                </p>
+                </div>
               </div>
               {/* Third line - Job description */}
-              <div className="max-w-md text-sm">
+              <div className="text-sm flex justify-between">
                 <input
                   className="bg-transparent"
                   type="text"
@@ -150,13 +169,20 @@ export default function Job({
                   value={experienceToEdit.description}
                   onChange={handleInput}
                 />
+                <button
+                  onClick={() => {
+                    handleEdit(jobs, setJobs);
+                  }}
+                >
+                  Submit
+                </button>
               </div>
             </div>
           )
         )}
         {/* Submit mode */}
         {submitMode && (
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-2">
             {/* First line - job and location */}
             <div className="flex flex-row justify-between">
               {/* Submit Edit button */}
@@ -171,17 +197,10 @@ export default function Job({
                     placeholder="Company"
                   />
                 </h4>
-                <button
-                  onClick={() => {
-                    addExperience(jobs, setJobs);
-                  }}
-                >
-                  Done
-                </button>
               </div>
               <h2>
                 <input
-                  className="bg-transparent"
+                  className="bg-transparent text-right"
                   type="text"
                   name="location"
                   value={newExperience.location}
@@ -202,28 +221,27 @@ export default function Job({
                   placeholder="Position"
                 />
               </h3>
-              <p>
+              <div className="flex flex-col text-xs">
                 <input
-                  className="bg-transparent"
+                  className="bg-transparent text-right"
                   type="text"
                   name="startdate"
                   value={newExperience.startdate}
                   onChange={handleInput}
                   placeholder="Start Date"
-                />{" "}
-                -{" "}
+                />
                 <input
-                  className="bg-transparent"
+                  className="bg-transparent text-right"
                   type="text"
                   name="enddate"
                   value={newExperience.enddate}
                   onChange={handleInput}
                   placeholder="End Date"
                 />
-              </p>
+              </div>
             </div>
             {/* Third line - Job description */}
-            <div className="max-w-md text-sm">
+            <div className="text-sm flex justify-between">
               <input
                 className="bg-transparent"
                 type="text"
@@ -232,6 +250,16 @@ export default function Job({
                 value={newExperience.description}
                 onChange={handleInput}
               />
+              <button
+                onClick={() => {
+                  addExperience(jobs, setJobs);
+                }}
+              >
+                <FaCheck
+                  size={15}
+                  className="transition-all duration-200 hover:scale-125 hover:fill-emerald-700"
+                ></FaCheck>
+              </button>
             </div>
           </div>
         )}

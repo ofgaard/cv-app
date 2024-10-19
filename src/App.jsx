@@ -56,7 +56,7 @@ function App() {
 
   const addExperience = (list, setList) => {
     let newObject = {
-      id: crypto.randomUUID,
+      id: crypto.randomUUID(),
       title: newExperience.title,
       location: newExperience.location,
       positionDegree: newExperience.positionDegree,
@@ -74,6 +74,12 @@ function App() {
       enddate: "",
       description: "",
     });
+    setSubmitMode(false);
+  };
+
+  const deleteExperience = (id, list, setList) => {
+    let revisedList = list.filter((item) => item.id !== id);
+    setList(revisedList);
   };
 
   const handleInput = (e) => {
@@ -118,6 +124,7 @@ function App() {
               handleInput={handleInput}
               submitMode={submitMode}
               setSubmitMode={setSubmitMode}
+              deleteExperience={deleteExperience}
             ></Job>
           </div>
           {/* Education section */}
