@@ -4,19 +4,13 @@ import { FcGlobe } from "react-icons/fc";
 import { FcContacts } from "react-icons/fc";
 import { CiEdit } from "react-icons/ci";
 
-export default function Personal({ darkMode }) {
-  const [editMode, setEditMode] = useState(false);
-  const toggleEditMode = () => {
-    setEditMode((prev) => !prev);
-  };
-
-  const [contacts, setContacts] = useState({
-    Name: "John Doe",
-    Phone: "123 456 78",
-    Email: "Johndoe@gmail.com",
-    Location: "Copenhagen",
-  });
-
+export default function Personal({
+  darkMode,
+  contacts,
+  setContacts,
+  editContacts,
+  setEditContacts,
+}) {
   const handleInput = (e) => {
     const { name, value } = e.target;
     setContacts((prev) => ({ ...prev, [name]: value }));
@@ -31,7 +25,7 @@ export default function Personal({ darkMode }) {
             {!editMode ? <CiEdit size={30}></CiEdit> : "done"}
           </button> */}
           <h1 className="text-5xl sm:text-6xl font-extrabold">
-            {!editMode ? (
+            {!editContacts ? (
               contacts.Name
             ) : (
               <input
@@ -49,9 +43,9 @@ export default function Personal({ darkMode }) {
         <div className="flex flex-col md:flex-row gap-3 md:gap-10 items-center text-sm">
           {/* Phone */}
           <div className="flex flex-row items-center gap-2">
-            {!editMode && <FcPhone></FcPhone>}
+            {!editContacts && <FcPhone></FcPhone>}
             <h2>
-              {!editMode ? (
+              {!editContacts ? (
                 contacts.Phone
               ) : (
                 <input
@@ -67,9 +61,9 @@ export default function Personal({ darkMode }) {
           </div>
           {/* Email */}
           <div className="flex flex-row items-center gap-2">
-            {!editMode && <FcContacts></FcContacts>}
+            {!editContacts && <FcContacts></FcContacts>}
             <h2>
-              {!editMode ? (
+              {!editContacts ? (
                 contacts.Email
               ) : (
                 <input
@@ -85,9 +79,9 @@ export default function Personal({ darkMode }) {
           </div>
           {/* Location */}
           <div className="flex flex-row items-center gap-2">
-            {!editMode && <FcGlobe></FcGlobe>}
+            {!editContacts && <FcGlobe></FcGlobe>}
             <h2>
-              {!editMode ? (
+              {!editContacts ? (
                 contacts.Email
               ) : (
                 <input

@@ -37,8 +37,8 @@ export default function Education({
     <>
       <div
         className={`flex flex-col gap-5 ${
-          darkMode ? "bg-neutral-700" : "border border-slate-800"
-        } p-5 rounded-md`}
+          darkMode ? "bg-neutral-700" : " border-slate-800"
+        } p-5 rounded-md shadow-xl`}
       >
         {/* Top label/icons */}
         <div className="flex flex-row justify-between items-center">

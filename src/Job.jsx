@@ -37,8 +37,8 @@ export default function Job({
     <>
       <div
         className={`flex flex-col gap-5 ${
-          darkMode ? "bg-neutral-700" : "border border-slate-800"
-        } p-5 rounded-md`}
+          darkMode ? "bg-neutral-700" : " border-slate-800"
+        } p-5 rounded-md shadow-xl`}
       >
         {/* Top label/icons */}
         <div className="flex flex-row justify-between items-center">
@@ -52,7 +52,7 @@ export default function Job({
                 submitMode === 1 && "bg-yellow-700"
               } ${
                 !darkMode && "text-neutral-200"
-              } shadow-md font-semibold transition-colors duration-200 border border-transparent border- hover:scale-105 hover:border-neutral-200`}
+              } shadow-xl font-semibold transition-colors duration-200 border border-transparent border- hover:scale-105 hover:border-neutral-200`}
               onClick={
                 submitMode !== 1
                   ? () => setSubmitMode(1)
@@ -65,7 +65,7 @@ export default function Job({
         </div>
         {jobs.map((job) =>
           job.id !== editMode.id ? (
-            <div key={job.id} className="flex flex-col gap-1">
+            <div key={job.id} className="flex flex-col gap-0">
               {/* First line - job and location */}
               <div className="flex flex-row justify-between">
                 {/* Jobname and edit/delete buttons */}

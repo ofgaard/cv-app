@@ -7,12 +7,15 @@ import { FaRegFilePdf } from "react-icons/fa6";
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
-
-  const toggleDarkMode = () => {
-    setDarkMode((prev) => !prev);
-  };
-
-  // Shared logic for Job and Education
+  //Logic for Contacts component
+  const [contacts, setContacts] = useState({
+    Name: "John Doe",
+    Phone: "123 456 78",
+    Email: "Johndoe@gmail.com",
+    Location: "Copenhagen",
+  });
+  const [editContacts, setEditContacts] = useState(false);
+  //Logic for Experience and Job component
   const [editMode, setEditMode] = useState({ id: "" });
   const [experienceToEdit, setExperienceToEdit] = useState({
     id: "",
@@ -32,9 +35,14 @@ function App() {
     enddate: "",
     description: "",
   });
-
   const [submitMode, setSubmitMode] = useState(0);
 
+  //Dark Mode toggle
+  const toggleDarkMode = () => {
+    setDarkMode((prev) => !prev);
+  };
+
+  // Shared logic for Job and Education
   const toggleEditMode = (list, id) => {
     let itemToEdit = list.find((item) => item.id === id);
     setExperienceToEdit(itemToEdit);
@@ -109,14 +117,26 @@ function App() {
       >
         <div
           className={`${
-            darkMode ? "bg-neutral-800" : "bg-neutral-200"
+            darkMode ? "bg-neutral-800" : "bg-neutral-300"
           } min-h-screen print:text-black`}
         >
-          <Nav darkMode={darkMode} toggleDarkMode={toggleDarkMode}></Nav>
+          <Nav
+            darkMode={darkMode}
+            toggleDarkMode={toggleDarkMode}
+            contacts={contacts}
+            editContacts={editContacts}
+            setEditContacts={setEditContacts}
+          ></Nav>
           <div className="flex flex-col min-w-96 max-w-4xl mx-auto gap-4 p-5">
             {/* Contact header */}
-            <div className="mb-16">
-              <Personal darkMode={darkMode}></Personal>
+            <div className="mb-1">
+              <Personal
+                darkMode={darkMode}
+                editContacts={editContacts}
+                contacts={contacts}
+                setContacts={setContacts}
+                setEditContacts={setEditContacts}
+              ></Personal>
             </div>
             {/* Job section */}
             <div>
