@@ -23,7 +23,7 @@ export default function Job({
 }) {
   const [jobs, setJobs] = useState([
     {
-      id: "1",
+      id: "2",
       title: "John",
       positionDegree: "Journalist",
       location: "Copenhagen",
@@ -49,11 +49,15 @@ export default function Job({
           <div>
             <button
               className={`rounded-md min-w-16 text-xs px-1.5 py-1 bg-emerald-800 ${
-                submitMode && "bg-yellow-700"
+                submitMode === 1 && "bg-yellow-700"
               } shadow-md font-semibold transition-colors duration-200 border border-transparent border- hover:scale-105 hover:border-neutral-200`}
-              onClick={() => setSubmitMode((prev) => !prev)}
+              onClick={
+                submitMode !== 1
+                  ? () => setSubmitMode(1)
+                  : () => setSubmitMode(0)
+              }
             >
-              {!submitMode ? "Add ..." : "Cancel"}
+              {submitMode === 1 ? "Cancel" : "Add ..."}
             </button>
           </div>
         </div>
@@ -91,7 +95,10 @@ export default function Job({
                       toggleEditMode(jobs, job.id);
                     }}
                   >
-                    <CiEdit></CiEdit>
+                    <CiEdit
+                      size={15}
+                      className="transition-all duration-200 hover:scale-125"
+                    ></CiEdit>
                   </button>
                   <button>
                     <MdDelete
@@ -174,14 +181,17 @@ export default function Job({
                     handleEdit(jobs, setJobs);
                   }}
                 >
-                  Submit
+                  <FaCheck
+                    size={15}
+                    className="transition-all duration-200 hover:scale-125 hover:fill-emerald-700"
+                  ></FaCheck>
                 </button>
               </div>
             </div>
           )
         )}
         {/* Submit mode */}
-        {submitMode && (
+        {submitMode === 1 && (
           <div className="flex flex-col gap-2">
             {/* First line - job and location */}
             <div className="flex flex-row justify-between">

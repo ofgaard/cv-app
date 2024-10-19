@@ -2,9 +2,14 @@ import { useState } from "react";
 import Personal from "./Personal";
 import Job from "./Job";
 import Education from "./Education";
+import { CgDarkMode } from "react-icons/cg";
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
+
+  const toggleDarkMode = () => {
+    setDarkMode((prev) => !prev);
+  };
 
   // Shared logic for Job and Education
   const [editMode, setEditMode] = useState({ id: "" });
@@ -27,7 +32,7 @@ function App() {
     description: "",
   });
 
-  const [submitMode, setSubmitMode] = useState(false);
+  const [submitMode, setSubmitMode] = useState(0);
 
   const toggleEditMode = (list, id) => {
     let itemToEdit = list.find((item) => item.id === id);
@@ -99,8 +104,9 @@ function App() {
           darkMode
             ? "bg-neutral-800 text-neutral-200"
             : "bg-neutral-200 text-slate-800"
-        }`}
+        } overflow-auto`}
       >
+        {" "}
         <div
           className={`${
             darkMode ? "bg-neutral-800" : "bg-neutral-200"

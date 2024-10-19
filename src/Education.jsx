@@ -49,11 +49,15 @@ export default function Education({
           <div>
             <button
               className={`rounded-md min-w-16 text-xs px-1.5 py-1 bg-emerald-800 ${
-                submitMode && "bg-yellow-700"
+                submitMode === 2 && "bg-yellow-700"
               } shadow-md font-semibold transition-colors duration-200 border border-transparent border- hover:scale-105 hover:border-neutral-200`}
-              onClick={() => setSubmitMode((prev) => !prev)}
+              onClick={
+                submitMode !== 2
+                  ? () => setSubmitMode(2)
+                  : () => setSubmitMode(0)
+              }
             >
-              {!submitMode ? "Add ..." : "Cancel"}
+              {submitMode === 2 ? "Cancel" : "Add ..."}
             </button>
           </div>
         </div>
@@ -62,7 +66,6 @@ export default function Education({
             <div key={school.id} className="flex flex-col gap-1">
               {/* First line - school and location */}
               <div className="flex flex-row justify-between">
-                {/* School name and edit/delete buttons */}
                 <div className="flex flex-row gap-1">
                   <h4>{school.title}</h4>
                 </div>
@@ -91,13 +94,16 @@ export default function Education({
                       toggleEditMode(schools, school.id);
                     }}
                   >
-                    <CiEdit></CiEdit>
+                    <CiEdit
+                      size={15}
+                      className="transition-all duration-200 hover:scale-125"
+                    ></CiEdit>
                   </button>
                   <button>
                     <MdDelete
                       size={20}
                       onClick={() => {
-                        deleteExperience(school.id, school, setSchools);
+                        deleteExperience(school.id, schools, setSchools);
                       }}
                       className="fill-red-700 transition-all duration-200 hover:scale-125"
                     ></MdDelete>
@@ -173,14 +179,17 @@ export default function Education({
                     handleEdit(schools, setSchools);
                   }}
                 >
-                  Submit
+                  <FaCheck
+                    size={15}
+                    className="transition-all duration-200 hover:scale-125 hover:fill-emerald-700"
+                  ></FaCheck>
                 </button>
               </div>
             </div>
           )
         )}
         {/* Submit mode */}
-        {submitMode && (
+        {submitMode === 2 && (
           <div className="flex flex-col gap-2">
             {/* First line - school and location */}
             <div className="flex flex-row justify-between">
