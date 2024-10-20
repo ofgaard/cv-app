@@ -24,3 +24,16 @@ h3 {
 h2 {
   font-weight: 300;
 }
+
+button,
+.icons {
+  @media print {
+    display: none;
+  }
+}
+
+@media print {
+  * {
+    box-shadow: none !important;
+  }
+}

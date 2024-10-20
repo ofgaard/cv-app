@@ -38,12 +38,12 @@ export default function Education({
       <div
         className={`flex flex-col gap-5 ${
           darkMode ? "bg-neutral-700" : " border-slate-800"
-        } p-5 rounded-md shadow-xl`}
+        } p-5 rounded-xl shadow-lg`}
       >
         {/* Top label/icons */}
         <div className="flex flex-row justify-between items-center">
           <div className="flex flex-row items-center gap-2">
-            <FcBriefcase></FcBriefcase>
+            <FcBriefcase className="icons"></FcBriefcase>
             <h5>Education</h5>
           </div>
           <div>
@@ -98,7 +98,7 @@ export default function Education({
                   >
                     <CiEdit
                       size={15}
-                      className="transition-all duration-200 hover:scale-125"
+                      className="icons transition-all duration-200 hover:scale-125"
                     ></CiEdit>
                   </button>
                   <button>
@@ -107,7 +107,7 @@ export default function Education({
                       onClick={() => {
                         deleteExperience(school.id, schools, setSchools);
                       }}
-                      className="fill-red-700 transition-all duration-200 hover:scale-125"
+                      className="fill-red-700 transition-all duration-200 hover:scale-125 icons"
                     ></MdDelete>
                   </button>
                 </div>

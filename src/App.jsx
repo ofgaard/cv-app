@@ -120,13 +120,15 @@ function App() {
             darkMode ? "bg-neutral-800" : "bg-neutral-300"
           } min-h-screen print:text-black`}
         >
-          <Nav
-            darkMode={darkMode}
-            toggleDarkMode={toggleDarkMode}
-            contacts={contacts}
-            editContacts={editContacts}
-            setEditContacts={setEditContacts}
-          ></Nav>
+          <div className="print:hidden">
+            <Nav
+              darkMode={darkMode}
+              toggleDarkMode={toggleDarkMode}
+              contacts={contacts}
+              editContacts={editContacts}
+              setEditContacts={setEditContacts}
+            ></Nav>
+          </div>
           <div className="flex flex-col min-w-96 max-w-4xl mx-auto gap-4 p-5">
             {/* Contact header */}
             <div className="mb-1">

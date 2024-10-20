@@ -12,14 +12,14 @@ export default function Nav({
   return (
     <div className="flex w-full border-neutral-700 h-10 items-center justify-between p-3">
       <CgDarkMode
-        className="transition-transform duration-200 hover:scale-125"
+        className="transition-transform duration-200 hover:scale-125 icons"
         onClick={toggleDarkMode}
         size={20}
       ></CgDarkMode>
 
       <div className="flex gap-2 items-center">
         <button onClick={() => setEditContacts((prev) => !prev)}>
-          <CiEdit size={25}></CiEdit>
+          <CiEdit size={25} className="icons"></CiEdit>
         </button>
       </div>
     </div>

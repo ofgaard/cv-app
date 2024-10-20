@@ -19,17 +19,14 @@ export default function Personal({
   return (
     <>
       <div className="flex flex-col items-center gap-7">
-        {/* Name and edit button */}
+        {/* Name */}
         <div className="flex flex-col items-center gap-1 relative">
-          {/* <button className="" onClick={toggleEditMode}>
-            {!editMode ? <CiEdit size={30}></CiEdit> : "done"}
-          </button> */}
           <h1 className="text-5xl sm:text-6xl font-extrabold">
             {!editContacts ? (
               contacts.Name
             ) : (
               <input
-                className="bg-transparent rounded-md p-2 max-w-96 text-center"
+                className="bg-transparent border rounded-md p-2 max-w-96 text-center"
                 type="text"
                 name="Name"
                 value={contacts.Name}
@@ -40,16 +37,16 @@ export default function Personal({
           </h1>
         </div>
         {/* Contact info */}
-        <div className="flex flex-col md:flex-row gap-3 md:gap-10 items-center text-sm">
+        <div className="flex flex-col md:flex-row print:flex-row print:gap-5 gap-3 md:gap-10 items-center text-sm">
           {/* Phone */}
           <div className="flex flex-row items-center gap-2">
-            {!editContacts && <FcPhone></FcPhone>}
+            {!editContacts && <FcPhone className="icons"></FcPhone>}
             <h2>
               {!editContacts ? (
                 contacts.Phone
               ) : (
                 <input
-                  className={`bg-transparent max-w-96 text-center  max-h-7 rounded-md p-2`}
+                  className={`bg-transparent border max-w-96 text-center  max-h-7 rounded-md p-2`}
                   type="text"
                   name="Phone"
                   value={contacts.Phone}
@@ -61,13 +58,13 @@ export default function Personal({
           </div>
           {/* Email */}
           <div className="flex flex-row items-center gap-2">
-            {!editContacts && <FcContacts></FcContacts>}
+            {!editContacts && <FcContacts className="icons"></FcContacts>}
             <h2>
               {!editContacts ? (
                 contacts.Email
               ) : (
                 <input
-                  className={`bg-transparent max-w-96 text-center max-h-7 rounded-md p-2`}
+                  className={`bg-transparent border max-w-96 text-center max-h-7 rounded-md p-2`}
                   type="text"
                   name="Email"
                   value={contacts.Email}
@@ -79,13 +76,13 @@ export default function Personal({
           </div>
           {/* Location */}
           <div className="flex flex-row items-center gap-2">
-            {!editContacts && <FcGlobe></FcGlobe>}
+            {!editContacts && <FcGlobe className="icons"></FcGlobe>}
             <h2>
               {!editContacts ? (
                 contacts.Email
               ) : (
                 <input
-                  className={`bg-transparent max-w-96 text-center max-h-7 rounded-md p-2`}
+                  className={`bg-transparent border max-w-96 text-center max-h-7 rounded-md p-2`}
                   type="text"
                   name="Location"
                   value={contacts.Location}
