@@ -5,6 +5,7 @@ import { MdDeleteOutline } from "react-icons/md";
 import { IoIosAdd } from "react-icons/io";
 import { FaCheck } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { IoSchoolSharp } from "react-icons/io5";
 
 export default function Education({
   darkMode,
@@ -21,17 +22,7 @@ export default function Education({
   setSubmitMode,
   deleteExperience,
 }) {
-  const [schools, setSchools] = useState([
-    {
-      id: "1",
-      title: "Roskilde Uni",
-      positionDegree: "Masters",
-      location: "Roskilde",
-      startdate: "2000",
-      enddate: "2004",
-      description: "Studying",
-    },
-  ]);
+  const [schools, setSchools] = useState([]);
 
   return (
     <>
@@ -41,9 +32,9 @@ export default function Education({
         } p-5 rounded-xl shadow-lg`}
       >
         {/* Top label/icons */}
-        <div className="flex flex-row justify-between items-center">
+        <div className="flex flex-row print:flex-col justify-between items-center">
           <div className="flex flex-row items-center gap-2">
-            <FcBriefcase className="icons"></FcBriefcase>
+            <IoSchoolSharp className="icons fill-orange-500"></IoSchoolSharp>
             <h5>Education</h5>
           </div>
           <div>
@@ -207,7 +198,7 @@ export default function Education({
                   />
                 </h4>
               </div>
-              <h2>
+              <h2 className="text-xs">
                 <input
                   className="bg-transparent text-right"
                   type="text"

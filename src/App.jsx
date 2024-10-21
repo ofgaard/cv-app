@@ -176,7 +176,6 @@ function App() {
                 deleteExperience={deleteExperience}
               ></Education>
             </div>
-            <div></div>
           </div>
         </div>
       </div>

@@ -17,9 +17,21 @@ export default function Nav({
         size={20}
       ></CgDarkMode>
 
-      <div className="flex gap-2 items-center">
+      <div className="flex gap-5 items-center">
+        <button className="transition-transform duration-200 icons hover:scale-125">
+          <FaRegFilePdf
+            size={25}
+            onClick={() => {
+              window.print();
+            }}
+            className="fill-orange-500"
+          ></FaRegFilePdf>
+        </button>
         <button onClick={() => setEditContacts((prev) => !prev)}>
-          <CiEdit size={25} className="icons"></CiEdit>
+          <CiEdit
+            size={30}
+            className=" transition-transform duration-200 icons hover:scale-125"
+          ></CiEdit>
         </button>
       </div>
     </div>

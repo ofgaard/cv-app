@@ -3,6 +3,7 @@ import { FcPhone } from "react-icons/fc";
 import { FcGlobe } from "react-icons/fc";
 import { FcContacts } from "react-icons/fc";
 import { CiEdit } from "react-icons/ci";
+import { FaRegFilePdf } from "react-icons/fa6";
 
 export default function Personal({
   darkMode,
@@ -26,7 +27,9 @@ export default function Personal({
               contacts.Name
             ) : (
               <input
-                className="bg-transparent border rounded-md p-2 max-w-96 text-center"
+                className={`bg-transparent border ${
+                  !darkMode && "border-slate-800"
+                } rounded-md p-2 max-w-96 text-center`}
                 type="text"
                 name="Name"
                 value={contacts.Name}
@@ -46,7 +49,9 @@ export default function Personal({
                 contacts.Phone
               ) : (
                 <input
-                  className={`bg-transparent border max-w-96 text-center  max-h-7 rounded-md p-2`}
+                  className={`bg-transparent border ${
+                    !darkMode && "border-slate-800"
+                  } max-w-96 text-center  max-h-7 rounded-md p-2`}
                   type="text"
                   name="Phone"
                   value={contacts.Phone}
@@ -64,7 +69,9 @@ export default function Personal({
                 contacts.Email
               ) : (
                 <input
-                  className={`bg-transparent border max-w-96 text-center max-h-7 rounded-md p-2`}
+                  className={`bg-transparent border ${
+                    !darkMode && "border-slate-800"
+                  } max-w-96 text-center max-h-7 rounded-md p-2`}
                   type="text"
                   name="Email"
                   value={contacts.Email}
@@ -82,7 +89,9 @@ export default function Personal({
                 contacts.Email
               ) : (
                 <input
-                  className={`bg-transparent border max-w-96 text-center max-h-7 rounded-md p-2`}
+                  className={`bg-transparent border ${
+                    !darkMode && "border-slate-800"
+                  } max-w-96 text-center max-h-7 rounded-md p-2`}
                   type="text"
                   name="Location"
                   value={contacts.Location}
