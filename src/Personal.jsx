@@ -22,8 +22,8 @@ export default function Personal({
     <>
       <div className="flex flex-col items-center gap-7">
         {/* Name */}
-        <div className="flex flex-col items-center gap-1 relative">
-          <h1 className="text-5xl sm:text-6xl font-extrabold">
+        <div className="flex flex-col items-center gap-1">
+          <h1 className="text-5xl sm:text-6xl font-extrabold text-center">
             {!editContacts ? (
               contacts.Name
             ) : (
