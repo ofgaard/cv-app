@@ -6,4 +6,4 @@ A simple React app that lets users build and print their resume. Works by lettin
 
 The project is built with React and Tailwind.
 
-This is my first ever React app built shortly after switching from vanilla JS and learning the basics of state and the passing of props between components. It's also my first project built Tailwind.
+This is my first ever React app built shortly after switching from vanilla JS and learning the basics of state and the passing of props between components. It's also my first project built using Tailwind.
