@@ -8,6 +8,5 @@ The project is built with React and Tailwind.
 
 This is my first ever React app built shortly after switching from vanilla JS and learning the basics of state and the passing of props between components. It's also my first project built using Tailwind.
 
-![Full width, dark mode](fw-dark.png)
 ![Mobile, light mode](sw-light.png)
 ![Mobile, dark mode](<Screenshot 2024-10-23 at 21.42.58.png>)
