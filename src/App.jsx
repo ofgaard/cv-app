@@ -129,7 +129,7 @@ function App() {
               setEditContacts={setEditContacts}
             ></Nav>
           </div>
-          <div className="flex flex-col min-w-96 max-w-4xl mx-auto gap-4 p-5">
+          <div className="flex flex-col max-w-4xl mx-auto gap-4 p-5">
             {/* Contact header */}
             <div className="mb-1">
               <Personal

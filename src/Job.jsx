@@ -32,7 +32,7 @@ export default function Job({
         } p-5 rounded-xl shadow-lg`}
       >
         {/* Top label/icons */}
-        <div className="flex gap-3 flex-row print:flex-col justify-between items-center">
+        <div className="flex flex-col gap-3 sm:flex-row print:flex-col justify-between items-center">
           <div className="flex flex-row items-center gap-2">
             <MdWork className="icons fill-orange-500"></MdWork>
             <h5>Work Experience</h5>
@@ -188,7 +188,8 @@ export default function Job({
         {submitMode === 1 && (
           <div className="flex flex-col gap-2">
             {/* First line - job and location */}
-            <div className="flex flex-row justify-between flex-wrap">
+            <div className="flex flex-row justify-between">
+              {/* Submit Edit button */}
               <div className="flex flex-row gap-1">
                 <h4>
                   <input
@@ -203,7 +204,7 @@ export default function Job({
               </div>
               <h2 className="text-xs">
                 <input
-                  className="bg-transparent sm:text-right"
+                  className="bg-transparent text-right"
                   type="text"
                   name="location"
                   value={newExperience.location}
@@ -213,7 +214,7 @@ export default function Job({
               </h2>
             </div>
             {/* Second line - Position and start/end date */}
-            <div className="flex flex-row justify-between flex-wrap">
+            <div className="flex flex-row justify-between">
               <h3>
                 <input
                   className="bg-transparent"
@@ -226,7 +227,7 @@ export default function Job({
               </h3>
               <div className="flex flex-col text-xs">
                 <input
-                  className="bg-transparent sm:text-right"
+                  className="bg-transparent text-right"
                   type="text"
                   name="startdate"
                   value={newExperience.startdate}
@@ -234,7 +235,7 @@ export default function Job({
                   placeholder="Start Date"
                 />
                 <input
-                  className="bg-transparent sm:text-right"
+                  className="bg-transparent text-right"
                   type="text"
                   name="enddate"
                   value={newExperience.enddate}
