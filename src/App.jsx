@@ -9,7 +9,7 @@ function App() {
   const [darkMode, setDarkMode] = useState(true);
   //Logic for Contacts component
   const [contacts, setContacts] = useState({
-    Name: "John Doe",
+    Name: "Oliver Fruergaard",
     Phone: "123 456 78",
     Email: "Johndoe@gmail.com",
     Location: "Copenhagen",
@@ -125,7 +125,6 @@ function App() {
               darkMode={darkMode}
               toggleDarkMode={toggleDarkMode}
               contacts={contacts}
-              editContacts={editContacts}
               setEditContacts={setEditContacts}
             ></Nav>
           </div>

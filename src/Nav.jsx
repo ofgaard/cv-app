@@ -3,12 +3,7 @@ import { CgDarkMode } from "react-icons/cg";
 import { CiEdit } from "react-icons/ci";
 import { FaRegFilePdf } from "react-icons/fa6";
 
-export default function Nav({
-  darkMode,
-  toggleDarkMode,
-  editContacts,
-  setEditContacts,
-}) {
+export default function Nav({ darkMode, toggleDarkMode, setEditContacts }) {
   return (
     <div className="flex w-full border-neutral-700 h-10 items-center justify-between p-3">
       <CgDarkMode

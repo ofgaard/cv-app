@@ -4,6 +4,7 @@ import { FcGlobe } from "react-icons/fc";
 import { FcContacts } from "react-icons/fc";
 import { CiEdit } from "react-icons/ci";
 import { FaRegFilePdf } from "react-icons/fa6";
+import { FaCheck } from "react-icons/fa";
 
 export default function Personal({
   darkMode,
@@ -101,6 +102,15 @@ export default function Personal({
               )}
             </h2>
           </div>
+          {/* Finish button */}
+          {editContacts && (
+            <button onClick={() => setEditContacts((prev) => !prev)}>
+              <FaCheck
+                size={15}
+                className="transition-all duration-200 hover:scale-125 hover:fill-emerald-700"
+              ></FaCheck>
+            </button>
+          )}
         </div>
       </div>
     </>
