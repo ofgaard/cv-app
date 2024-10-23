@@ -32,7 +32,7 @@ export default function Job({
         } p-5 rounded-xl shadow-lg`}
       >
         {/* Top label/icons */}
-        <div className="flex flex-col gap-3 sm:flex-row print:flex-col justify-between items-center">
+        <div className="flex gap-3 flex-row print:flex-col justify-between items-center">
           <div className="flex flex-row items-center gap-2">
             <MdWork className="icons fill-orange-500"></MdWork>
             <h5>Work Experience</h5>
