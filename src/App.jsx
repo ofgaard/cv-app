@@ -111,13 +111,13 @@ function App() {
       <div
         className={`${
           darkMode
-            ? "bg-neutral-800 text-neutral-200"
+            ? "bg-neutral-900 text-neutral-200"
             : "bg-neutral-200 text-slate-800"
         } overflow-auto`}
       >
         <div
           className={`${
-            darkMode ? "bg-neutral-800" : "bg-neutral-300"
+            darkMode ? "bg-neutral-900" : "bg-neutral-300"
           } min-h-screen print:text-black`}
         >
           <div className="print:hidden">

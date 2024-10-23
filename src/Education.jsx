@@ -28,7 +28,7 @@ export default function Education({
     <>
       <div
         className={`flex flex-col gap-5 ${
-          darkMode ? "bg-neutral-700" : " border-slate-800"
+          darkMode ? "bg-neutral-800" : " border-slate-800"
         } p-5 rounded-xl shadow-lg min-w-80`}
       >
         {/* Top label/icons */}
