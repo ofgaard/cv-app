@@ -29,7 +29,7 @@ export default function Education({
       <div
         className={`flex flex-col gap-5 ${
           darkMode ? "bg-neutral-700" : " border-slate-800"
-        } p-5 rounded-xl shadow-lg`}
+        } p-5 rounded-xl shadow-lg min-w-80`}
       >
         {/* Top label/icons */}
         <div className="flex flex-row print:flex-col justify-between items-center">
@@ -183,84 +183,67 @@ export default function Education({
         )}
         {/* Submit mode */}
         {submitMode === 2 && (
-          <div className="flex flex-col gap-2">
-            {/* First line - school and location */}
-            <div className="flex flex-row justify-between">
-              <div className="flex flex-row gap-1">
-                <h4>
-                  <input
-                    className="bg-transparent"
-                    type="text"
-                    name="title"
-                    value={newExperience.title}
-                    onChange={handleInput}
-                    placeholder="School"
-                  />
-                </h4>
-              </div>
-              <h2 className="text-xs">
-                <input
-                  className="bg-transparent text-right"
-                  type="text"
-                  name="location"
-                  value={newExperience.location}
-                  onChange={handleInput}
-                  placeholder="Location"
-                />
-              </h2>
-            </div>
-            {/* Second line - Degree and start/end date */}
-            <div className="flex flex-row justify-between">
-              <h3>
-                <input
-                  className="bg-transparent"
-                  type="text"
-                  name="positionDegree"
-                  value={newExperience.positionDegree}
-                  onChange={handleInput}
-                  placeholder="Degree"
-                />
-              </h3>
-              <div className="flex flex-col text-xs">
-                <input
-                  className="bg-transparent text-right"
-                  type="text"
-                  name="startdate"
-                  value={newExperience.startdate}
-                  onChange={handleInput}
-                  placeholder="Start Date"
-                />
-                <input
-                  className="bg-transparent text-right"
-                  type="text"
-                  name="enddate"
-                  value={newExperience.enddate}
-                  onChange={handleInput}
-                  placeholder="End Date"
-                />
-              </div>
-            </div>
-            {/* Third line - Degree description */}
-            <div className="text-sm flex justify-between">
-              <input
-                className="bg-transparent"
-                type="text"
-                name="description"
-                placeholder="Description"
-                value={newExperience.description}
-                onChange={handleInput}
-              />
-              <button
-                onClick={() => {
-                  addExperience(schools, setSchools);
-                }}
-              >
-                <FaCheck
-                  size={15}
-                  className="transition-all duration-200 hover:scale-125 hover:fill-emerald-700"
-                ></FaCheck>
-              </button>
-            </div>
+          <div className="flex flex-col gap-2 text-sm">
+            <input
+              className="bg-transparent"
+              type="text"
+              name="title"
+              value={newExperience.title}
+              onChange={handleInput}
+              placeholder="School"
+            />
+
+            <input
+              className="bg-transparent"
+              type="text"
+              name="location"
+              value={newExperience.location}
+              onChange={handleInput}
+              placeholder="Location"
+            />
+            <input
+              className="bg-transparent"
+              type="text"
+              name="positionDegree"
+              value={newExperience.positionDegree}
+              onChange={handleInput}
+              placeholder="Degree"
+            />
+            <input
+              className="bg-transparent"
+              type="text"
+              name="startdate"
+              value={newExperience.startdate}
+              onChange={handleInput}
+              placeholder="Start Date"
+            />
+            <input
+              className="bg-transparent"
+              type="text"
+              name="enddate"
+              value={newExperience.enddate}
+              onChange={handleInput}
+              placeholder="End Date"
+            />
+            <input
+              className="bg-transparent"
+              type="text"
+              name="description"
+              placeholder="Description"
+              value={newExperience.description}
+              onChange={handleInput}
+            />
+            <button
+              onClick={() => {
+                addExperience(schools, setSchools);
+              }}
+              className="ml-auto"
+            >
+              <FaCheck
+                size={15}
+                className="transition-all duration-200 hover:scale-125 hover:fill-emerald-700"
+              ></FaCheck>
+            </button>
           </div>
         )}
       </div>
