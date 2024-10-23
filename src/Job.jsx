@@ -22,7 +22,16 @@ export default function Job({
   setSubmitMode,
   deleteExperience,
 }) {
-  const [jobs, setJobs] = useState([]);
+  const [jobs, setJobs] = useState([
+    {
+      title: "BBC",
+      location: "London, UK",
+      positionDegree: "Reporter, World News",
+      startdate: "2018",
+      enddate: "2023",
+      description: "Interviews and radio reports at BBC World News",
+    },
+  ]);
 
   return (
     <>
@@ -57,7 +66,7 @@ export default function Job({
         {jobs.length > 0 &&
           jobs.map((job) =>
             job.id !== editMode.id ? (
-              <div key={job.id} className="flex flex-col gap-0">
+              <div key={job.id} className="flex flex-col gap-3">
                 {/* First line - job and location */}
                 <div className="flex flex-row justify-between">
                   {/* Jobname and edit/delete buttons */}
@@ -80,7 +89,11 @@ export default function Job({
                 {/* Third line - Job description */}
                 <div className="flex justify-between">
                   {" "}
-                  <div className="max-w-96 sm:max-w-xs text-sm">
+                  <div
+                    className={`max-w-56 sm:max-w-xs text-sm ${
+                      darkMode ? "text-neutral-300" : "text-neutral-800"
+                    } `}
+                  >
                     {job.description}
                   </div>
                   <div className="flex gap-2">
@@ -108,79 +121,60 @@ export default function Job({
               </div>
             ) : (
               // Edit mode
-              <div key={job.id} className="flex flex-col gap-1">
-                {/* First line - job and location */}
-                <div className="flex flex-row justify-between">
-                  {/* Submit Edit button */}
-                  <div className="flex flex-row gap-1">
-                    <h4>
-                      <input
-                        className="bg-transparent"
-                        type="text"
-                        name="title"
-                        value={experienceToEdit.title}
-                        onChange={handleInput}
-                      />
-                    </h4>
-                  </div>
-                  <h2>
-                    <input
-                      className="bg-transparent text-right"
-                      type="text"
-                      name="location"
-                      value={experienceToEdit.location}
-                      onChange={handleInput}
-                    />
-                  </h2>
-                </div>
-                {/* Second line - Position and start/end date */}
-                <div className="flex flex-row justify-between">
-                  <h3>
-                    <input
-                      className="bg-transparent"
-                      type="text"
-                      name="positionDegree"
-                      value={experienceToEdit.positionDegree}
-                      onChange={handleInput}
-                    />
-                  </h3>
-                  <div className="flex flex-col text-xs">
-                    <input
-                      className="bg-transparent text-right"
-                      type="text"
-                      name="startdate"
-                      value={experienceToEdit.startdate}
-                      onChange={handleInput}
-                    />{" "}
-                    <input
-                      className="bg-transparent text-right"
-                      type="text"
-                      name="enddate"
-                      value={experienceToEdit.enddate}
-                      onChange={handleInput}
-                    />
-                  </div>
-                </div>
-                {/* Third line - Job description */}
-                <div className="text-sm flex justify-between">
-                  <input
-                    className="bg-transparent"
-                    type="text"
-                    name="description"
-                    value={experienceToEdit.description}
-                    onChange={handleInput}
-                  />
-                  <button
-                    onClick={() => {
-                      handleEdit(jobs, setJobs);
-                    }}
-                  >
-                    <FaCheck
-                      size={15}
-                      className="transition-all duration-200 hover:scale-125 hover:fill-emerald-700"
-                    ></FaCheck>
-                  </button>
-                </div>
+              <div key={job.id} className="flex flex-col gap-2 text-sm">
+                <input
+                  className="bg-transparent"
+                  type="text"
+                  name="title"
+                  value={experienceToEdit.title}
+                  onChange={handleInput}
+                />
+                <input
+                  className="bg-transparent"
+                  type="text"
+                  name="location"
+                  value={experienceToEdit.location}
+                  onChange={handleInput}
+                />
+                <input
+                  className="bg-transparent"
+                  type="text"
+                  name="positionDegree"
+                  value={experienceToEdit.positionDegree}
+                  onChange={handleInput}
+                />
+                <input
+                  className="bg-transparent"
+                  type="text"
+                  name="startdate"
+                  value={experienceToEdit.startdate}
+                  onChange={handleInput}
+                />{" "}
+                <input
+                  className="bg-transparent"
+                  type="text"
+                  name="enddate"
+                  value={experienceToEdit.enddate}
+                  onChange={handleInput}
+                />
+                <input
+                  className="bg-transparent"
+                  type="text"
+                  name="description"
+                  value={experienceToEdit.description}
+                  onChange={handleInput}
+                />
+                <button
+                  className="ml-auto"
+                  onClick={() => {
+                    handleEdit(jobs, setJobs);
+                  }}
+                >
+                  <FaCheck
+                    size={15}
+                    className="transition-all duration-200 hover:scale-125 hover:fill-emerald-700"
+                  ></FaCheck>
+                </button>
               </div>
             )
           )}

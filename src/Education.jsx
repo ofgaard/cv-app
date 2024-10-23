@@ -78,7 +78,11 @@ export default function Education({
               {/* Third line - Degree description */}
               <div className="flex justify-between">
                 {" "}
-                <div className="max-w-52 sm:max-w-xs text-sm">
+                <div
+                  className={`max-w-56 sm:max-w-xs text-sm ${
+                    darkMode ? "text-neutral-300" : "text-neutral-800"
+                  } `}
+                >
                   {school.description}
                 </div>
                 <div className="flex gap-2">
@@ -106,78 +110,59 @@ export default function Education({
             </div>
           ) : (
             // Edit mode
-            <div key={school.id} className="flex flex-col gap-1">
-              {/* First line - school and location */}
-              <div className="flex flex-row justify-between">
-                <div className="flex flex-row gap-1">
-                  <h4>
-                    <input
-                      className="bg-transparent"
-                      type="text"
-                      name="title"
-                      value={experienceToEdit.title}
-                      onChange={handleInput}
-                    />
-                  </h4>
-                </div>
-                <h2>
-                  <input
-                    className="bg-transparent text-right"
-                    type="text"
-                    name="location"
-                    value={experienceToEdit.location}
-                    onChange={handleInput}
-                  />
-                </h2>
-              </div>
-              {/* Second line - Degree and start/end date */}
-              <div className="flex flex-row justify-between">
-                <h3>
-                  <input
-                    className="bg-transparent"
-                    type="text"
-                    name="positionDegree"
-                    value={experienceToEdit.positionDegree}
-                    onChange={handleInput}
-                  />
-                </h3>
-                <div className="flex flex-col text-xs">
-                  <input
-                    className="bg-transparent text-right"
-                    type="text"
-                    name="startdate"
-                    value={experienceToEdit.startdate}
-                    onChange={handleInput}
-                  />{" "}
-                  <input
-                    className="bg-transparent text-right"
-                    type="text"
-                    name="enddate"
-                    value={experienceToEdit.enddate}
-                    onChange={handleInput}
-                  />
-                </div>
-              </div>
-              {/* Third line - degree description */}
-              <div className="text-sm flex justify-between">
-                <input
-                  className="bg-transparent"
-                  type="text"
-                  name="description"
-                  value={experienceToEdit.description}
-                  onChange={handleInput}
-                />
-                <button
-                  onClick={() => {
-                    handleEdit(schools, setSchools);
-                  }}
-                >
-                  <FaCheck
-                    size={15}
-                    className="transition-all duration-200 hover:scale-125 hover:fill-emerald-700"
-                  ></FaCheck>
-                </button>
-              </div>
+            <div key={school.id} className="flex flex-col gap-2 text-sm">
+              <input
+                className="bg-transparent"
+                type="text"
+                name="title"
+                value={experienceToEdit.title}
+                onChange={handleInput}
+              />
+              <input
+                className="bg-transparent"
+                type="text"
+                name="location"
+                value={experienceToEdit.location}
+                onChange={handleInput}
+              />
+              <input
+                className="bg-transparent"
+                type="text"
+                name="positionDegree"
+                value={experienceToEdit.positionDegree}
+                onChange={handleInput}
+              />
+              <input
+                className="bg-transparent"
+                type="text"
+                name="startdate"
+                value={experienceToEdit.startdate}
+                onChange={handleInput}
+              />{" "}
+              <input
+                className="bg-transparent"
+                type="text"
+                name="enddate"
+                value={experienceToEdit.enddate}
+                onChange={handleInput}
+              />
+              <input
+                className="bg-transparent"
+                type="text"
+                name="description"
+                value={experienceToEdit.description}
+                onChange={handleInput}
+              />
+              <button
+                onClick={() => {
+                  handleEdit(schools, setSchools);
+                }}
+              >
+                <FaCheck
+                  size={15}
+                  className="transition-all ml-auto duration-200 hover:scale-125 hover:fill-emerald-700"
+                ></FaCheck>
+              </button>
             </div>
           )
         )}

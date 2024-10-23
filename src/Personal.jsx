@@ -30,7 +30,7 @@ export default function Personal({
               <input
                 className={`bg-transparent border ${
                   !darkMode && "border-slate-800"
-                } rounded-md p-2 max-w-96 text-center`}
+                } rounded-md p-2 text-center text-base`}
                 type="text"
                 name="Name"
                 value={contacts.Name}
