@@ -32,7 +32,7 @@ export default function Job({
         } p-5 rounded-xl shadow-lg`}
       >
         {/* Top label/icons */}
-        <div className="flex flex-col gap-3 sm:flex-row print:flex-col justify-between items-center">
+        <div className="flex gap-3 flex-row print:flex-col justify-between items-center">
           <div className="flex flex-row items-center gap-2">
             <MdWork className="icons fill-orange-500"></MdWork>
             <h5>Work Experience</h5>
@@ -186,85 +186,67 @@ export default function Job({
           )}
         {/* Submit mode */}
         {submitMode === 1 && (
-          <div className="flex flex-col gap-2">
-            {/* First line - job and location */}
-            <div className="flex flex-row justify-between">
-              {/* Submit Edit button */}
-              <div className="flex flex-row gap-1">
-                <h4>
-                  <input
-                    className="bg-transparent"
-                    type="text"
-                    name="title"
-                    value={newExperience.title}
-                    onChange={handleInput}
-                    placeholder="Company"
-                  />
-                </h4>
-              </div>
-              <h2 className="text-xs">
-                <input
-                  className="bg-transparent text-right"
-                  type="text"
-                  name="location"
-                  value={newExperience.location}
-                  onChange={handleInput}
-                  placeholder="Location"
-                />
-              </h2>
-            </div>
-            {/* Second line - Position and start/end date */}
-            <div className="flex flex-row justify-between">
-              <h3>
-                <input
-                  className="bg-transparent"
-                  type="text"
-                  name="positionDegree"
-                  value={newExperience.positionDegree}
-                  onChange={handleInput}
-                  placeholder="Position"
-                />
-              </h3>
-              <div className="flex flex-col text-xs">
-                <input
-                  className="bg-transparent text-right"
-                  type="text"
-                  name="startdate"
-                  value={newExperience.startdate}
-                  onChange={handleInput}
-                  placeholder="Start Date"
-                />
-                <input
-                  className="bg-transparent text-right"
-                  type="text"
-                  name="enddate"
-                  value={newExperience.enddate}
-                  onChange={handleInput}
-                  placeholder="End Date"
-                />
-              </div>
-            </div>
-            {/* Third line - Job description */}
-            <div className="text-sm flex justify-between">
-              <input
-                className="bg-transparent"
-                type="text"
-                name="description"
-                placeholder="Description"
-                value={newExperience.description}
-                onChange={handleInput}
-              />
-              <button
-                onClick={() => {
-                  addExperience(jobs, setJobs);
-                }}
-              >
-                <FaCheck
-                  size={15}
-                  className="transition-all duration-200 hover:scale-125 hover:fill-emerald-700"
-                ></FaCheck>
-              </button>
-            </div>
+          <div className="flex flex-col gap-2 text-sm">
+            <input
+              className="bg-transparent"
+              type="text"
+              name="title"
+              value={newExperience.title}
+              onChange={handleInput}
+              placeholder="Company"
+            />
+
+            <input
+              className="bg-transparent "
+              type="text"
+              name="location"
+              value={newExperience.location}
+              onChange={handleInput}
+              placeholder="Location"
+            />
+            <input
+              className="bg-transparent"
+              type="text"
+              name="positionDegree"
+              value={newExperience.positionDegree}
+              onChange={handleInput}
+              placeholder="Position"
+            />
+            <input
+              className="bg-transparent"
+              type="text"
+              name="startdate"
+              value={newExperience.startdate}
+              onChange={handleInput}
+              placeholder="Start Date"
+            />
+            <input
+              className="bg-transparent"
+              type="text"
+              name="enddate"
+              value={newExperience.enddate}
+              onChange={handleInput}
+              placeholder="End Date"
+            />
+            <input
+              className="bg-transparent"
+              type="text"
+              name="description"
+              placeholder="Description"
+              value={newExperience.description}
+              onChange={handleInput}
+            />
+            <button
+              className="ml-auto"
+              onClick={() => {
+                addExperience(jobs, setJobs);
+              }}
+            >
+              <FaCheck
+                size={15}
+                className="transition-all duration-200 hover:scale-125 hover:fill-emerald-700"
+              ></FaCheck>
+            </button>
           </div>
         )}
       </div>
