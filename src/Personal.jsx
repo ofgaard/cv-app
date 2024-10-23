@@ -5,6 +5,9 @@ import { FcContacts } from "react-icons/fc";
 import { CiEdit } from "react-icons/ci";
 import { FaRegFilePdf } from "react-icons/fa6";
 import { FaCheck } from "react-icons/fa";
+import { FiPhone } from "react-icons/fi";
+import { MdAlternateEmail } from "react-icons/md";
+import { CiLocationArrow1 } from "react-icons/ci";
 
 export default function Personal({
   darkMode,
@@ -42,7 +45,7 @@ export default function Personal({
         <div className="flex flex-col md:flex-row print:flex-row print:gap-5 gap-3 md:gap-10 items-center text-sm">
           {/* Phone */}
           <div className="flex flex-row items-center gap-2">
-            {!editContacts && <FcPhone className="icons"></FcPhone>}
+            {!editContacts && <FiPhone className="icons"></FiPhone>}
             <h2>
               {!editContacts ? (
                 contacts.Phone
@@ -60,7 +63,9 @@ export default function Personal({
           </div>
           {/* Email */}
           <div className="flex flex-row items-center gap-2">
-            {!editContacts && <FcContacts className="icons"></FcContacts>}
+            {!editContacts && (
+              <MdAlternateEmail className="icons"></MdAlternateEmail>
+            )}
             <h2>
               {!editContacts ? (
                 contacts.Email
@@ -78,13 +83,15 @@ export default function Personal({
           </div>
           {/* Location */}
           <div className="flex flex-row items-center gap-2">
-            {!editContacts && <FcGlobe className="icons"></FcGlobe>}
+            {!editContacts && (
+              <CiLocationArrow1 className="icons"></CiLocationArrow1>
+            )}
             <h2>
               {!editContacts ? (
                 contacts.Email
               ) : (
                 <input
-                  className={`bg-transparent  max-w-96 text-center max-h-7  p-2`}
+                  className={`bg-transparent  max-w-96 text-center max-h-7  p-2 text-xs`}
                   type="text"
                   name="Location"
                   value={contacts.Location}
