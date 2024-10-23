@@ -56,7 +56,12 @@ export default function Education({
         </div>
         {/* Submit mode */}
         {submitMode === 2 && (
-          <div className="flex flex-col gap-2 text-sm">
+          <form
+            onSubmit={() => {
+              addExperience(schools, setSchools);
+            }}
+            className="flex flex-col gap-2 text-sm"
+          >
             <input
               className="bg-transparent"
               type="text"
@@ -106,18 +111,13 @@ export default function Education({
               value={newExperience.description}
               onChange={handleInput}
             />
-            <button
-              onClick={() => {
-                addExperience(schools, setSchools);
-              }}
-              className="ml-auto"
-            >
+            <button type="submit" className="ml-auto">
               <FaCheck
                 size={15}
                 className="transition-all duration-200 hover:scale-125 hover:fill-emerald-700"
               ></FaCheck>
             </button>
-          </div>
+          </form>
         )}
         {schools.map((school) =>
           school.id !== editMode.id ? (
@@ -175,7 +175,13 @@ export default function Education({
             </div>
           ) : (
             // Edit mode
-            <div key={school.id} className="flex flex-col gap-2 text-sm">
+            <form
+              key={school.id}
+              onSubmit={() => {
+                handleEdit(schools, setSchools);
+              }}
+              className="flex flex-col gap-2 text-sm"
+            >
               <input
                 className="bg-transparent"
                 type="text"
@@ -218,17 +224,13 @@ export default function Education({
                 value={experienceToEdit.description}
                 onChange={handleInput}
               />
-              <button
-                onClick={() => {
-                  handleEdit(schools, setSchools);
-                }}
-              >
+              <button type="submit">
                 <FaCheck
                   size={15}
                   className="transition-all ml-auto duration-200 hover:scale-125 hover:fill-emerald-700"
                 ></FaCheck>
               </button>
-            </div>
+            </form>
           )
         )}
       </div>

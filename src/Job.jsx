@@ -69,7 +69,12 @@ fill-orange-500
         </div>
         {/* Submit mode */}
         {submitMode === 1 && (
-          <div className="flex flex-col gap-2 text-sm">
+          <form
+            onSubmit={() => {
+              addExperience(jobs, setJobs);
+            }}
+            className="flex flex-col gap-2 text-sm"
+          >
             <input
               className="bg-transparent"
               type="text"
@@ -87,6 +92,7 @@ fill-orange-500
               onChange={handleInput}
               placeholder="Location"
             />
+
             <input
               className="bg-transparent"
               type="text"
@@ -119,18 +125,13 @@ fill-orange-500
               value={newExperience.description}
               onChange={handleInput}
             />
-            <button
-              className="ml-auto"
-              onClick={() => {
-                addExperience(jobs, setJobs);
-              }}
-            >
+            <button className="ml-auto" type="submit">
               <FaCheck
                 size={15}
                 className="transition-all duration-200 hover:scale-125 hover:fill-emerald-700"
               ></FaCheck>
             </button>
-          </div>
+          </form>
         )}
         {jobs.length > 0 &&
           jobs.map((job) =>
@@ -190,7 +191,13 @@ fill-orange-500
               </div>
             ) : (
               // Edit mode
-              <div key={job.id} className="flex flex-col gap-2 text-sm">
+              <form
+                key={job.id}
+                onSubmit={() => {
+                  handleEdit(jobs, setJobs);
+                }}
+                className="flex flex-col gap-2 text-sm"
+              >
                 <input
                   className="bg-transparent"
                   type="text"
@@ -233,18 +240,13 @@ fill-orange-500
                   value={experienceToEdit.description}
                   onChange={handleInput}
                 />
-                <button
-                  className="ml-auto"
-                  onClick={() => {
-                    handleEdit(jobs, setJobs);
-                  }}
-                >
+                <button className="ml-auto" type="submit">
                   <FaCheck
                     size={15}
                     className="transition-all duration-200 hover:scale-125 hover:fill-emerald-700"
                   ></FaCheck>
                 </button>
-              </div>
+              </form>
             )
           )}
       </div>
