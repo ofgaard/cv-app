@@ -28,9 +28,9 @@ export default function Personal({
               contacts.Name
             ) : (
               <input
-                className={`bg-transparent border ${
+                className={`bg-transparent border-b ${
                   !darkMode && "border-slate-800"
-                } rounded-md p-2 text-center text-base`}
+                }  p-2 text-center text-base`}
                 type="text"
                 name="Name"
                 value={contacts.Name}
@@ -50,9 +50,9 @@ export default function Personal({
                 contacts.Phone
               ) : (
                 <input
-                  className={`bg-transparent border ${
+                  className={`bg-transparent border-b ${
                     !darkMode && "border-slate-800"
-                  } max-w-96 text-center  max-h-7 rounded-md p-2`}
+                  } max-w-96 text-center  max-h-7 p-2`}
                   type="text"
                   name="Phone"
                   value={contacts.Phone}
@@ -70,9 +70,9 @@ export default function Personal({
                 contacts.Email
               ) : (
                 <input
-                  className={`bg-transparent border ${
+                  className={`bg-transparent border-b ${
                     !darkMode && "border-slate-800"
-                  } max-w-96 text-center max-h-7 rounded-md p-2`}
+                  } max-w-96 text-center max-h-7 p-2`}
                   type="text"
                   name="Email"
                   value={contacts.Email}
@@ -90,9 +90,9 @@ export default function Personal({
                 contacts.Email
               ) : (
                 <input
-                  className={`bg-transparent border ${
+                  className={`bg-transparent border-b ${
                     !darkMode && "border-slate-800"
-                  } max-w-96 text-center max-h-7 rounded-md p-2`}
+                  } max-w-96 text-center max-h-7  p-2`}
                   type="text"
                   name="Location"
                   value={contacts.Location}

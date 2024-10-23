@@ -24,12 +24,12 @@ export default function Job({
 }) {
   const [jobs, setJobs] = useState([
     {
-      title: "BBC",
-      location: "London, UK",
-      positionDegree: "Reporter, World News",
+      title: "Berlingske Media",
+      location: "Copenhagen",
+      positionDegree: "News reporter at bt.dk",
       startdate: "2018",
       enddate: "2023",
-      description: "Interviews and radio reports at BBC World News",
+      description: "Live coverage of national affairs in Denmark",
     },
   ]);
 
@@ -63,10 +63,75 @@ export default function Job({
             </button>
           </div>
         </div>
+        {/* Submit mode */}
+        {submitMode === 1 && (
+          <div className="flex flex-col gap-2 text-sm">
+            <input
+              className="bg-transparent"
+              type="text"
+              name="title"
+              value={newExperience.title}
+              onChange={handleInput}
+              placeholder="Company"
+            />
+
+            <input
+              className="bg-transparent "
+              type="text"
+              name="location"
+              value={newExperience.location}
+              onChange={handleInput}
+              placeholder="Location"
+            />
+            <input
+              className="bg-transparent"
+              type="text"
+              name="positionDegree"
+              value={newExperience.positionDegree}
+              onChange={handleInput}
+              placeholder="Position"
+            />
+            <input
+              className="bg-transparent"
+              type="text"
+              name="startdate"
+              value={newExperience.startdate}
+              onChange={handleInput}
+              placeholder="Start Date"
+            />
+            <input
+              className="bg-transparent"
+              type="text"
+              name="enddate"
+              value={newExperience.enddate}
+              onChange={handleInput}
+              placeholder="End Date"
+            />
+            <input
+              className="bg-transparent"
+              type="text"
+              name="description"
+              placeholder="Description"
+              value={newExperience.description}
+              onChange={handleInput}
+            />
+            <button
+              className="ml-auto"
+              onClick={() => {
+                addExperience(jobs, setJobs);
+              }}
+            >
+              <FaCheck
+                size={15}
+                className="transition-all duration-200 hover:scale-125 hover:fill-emerald-700"
+              ></FaCheck>
+            </button>
+          </div>
+        )}
         {jobs.length > 0 &&
           jobs.map((job) =>
             job.id !== editMode.id ? (
-              <div key={job.id} className="flex flex-col gap-3">
+              <div key={job.id} className="flex flex-col gap-1">
                 {/* First line - job and location */}
                 <div className="flex flex-row justify-between">
                   {/* Jobname and edit/delete buttons */}
@@ -178,71 +243,6 @@ export default function Job({
               </div>
             )
           )}
-        {/* Submit mode */}
-        {submitMode === 1 && (
-          <div className="flex flex-col gap-2 text-sm">
-            <input
-              className="bg-transparent"
-              type="text"
-              name="title"
-              value={newExperience.title}
-              onChange={handleInput}
-              placeholder="Company"
-            />
-
-            <input
-              className="bg-transparent "
-              type="text"
-              name="location"
-              value={newExperience.location}
-              onChange={handleInput}
-              placeholder="Location"
-            />
-            <input
-              className="bg-transparent"
-              type="text"
-              name="positionDegree"
-              value={newExperience.positionDegree}
-              onChange={handleInput}
-              placeholder="Position"
-            />
-            <input
-              className="bg-transparent"
-              type="text"
-              name="startdate"
-              value={newExperience.startdate}
-              onChange={handleInput}
-              placeholder="Start Date"
-            />
-            <input
-              className="bg-transparent"
-              type="text"
-              name="enddate"
-              value={newExperience.enddate}
-              onChange={handleInput}
-              placeholder="End Date"
-            />
-            <input
-              className="bg-transparent"
-              type="text"
-              name="description"
-              placeholder="Description"
-              value={newExperience.description}
-              onChange={handleInput}
-            />
-            <button
-              className="ml-auto"
-              onClick={() => {
-                addExperience(jobs, setJobs);
-              }}
-            >
-              <FaCheck
-                size={15}
-                className="transition-all duration-200 hover:scale-125 hover:fill-emerald-700"
-              ></FaCheck>
-            </button>
-          </div>
-        )}
       </div>
     </>
   );

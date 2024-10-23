@@ -54,6 +54,71 @@ export default function Education({
             </button>
           </div>
         </div>
+        {/* Submit mode */}
+        {submitMode === 2 && (
+          <div className="flex flex-col gap-2 text-sm">
+            <input
+              className="bg-transparent"
+              type="text"
+              name="title"
+              value={newExperience.title}
+              onChange={handleInput}
+              placeholder="School"
+            />
+
+            <input
+              className="bg-transparent"
+              type="text"
+              name="location"
+              value={newExperience.location}
+              onChange={handleInput}
+              placeholder="Location"
+            />
+            <input
+              className="bg-transparent"
+              type="text"
+              name="positionDegree"
+              value={newExperience.positionDegree}
+              onChange={handleInput}
+              placeholder="Degree"
+            />
+            <input
+              className="bg-transparent"
+              type="text"
+              name="startdate"
+              value={newExperience.startdate}
+              onChange={handleInput}
+              placeholder="Start Date"
+            />
+            <input
+              className="bg-transparent"
+              type="text"
+              name="enddate"
+              value={newExperience.enddate}
+              onChange={handleInput}
+              placeholder="End Date"
+            />
+            <input
+              className="bg-transparent"
+              type="text"
+              name="description"
+              placeholder="Description"
+              value={newExperience.description}
+              onChange={handleInput}
+            />
+            <button
+              onClick={() => {
+                addExperience(schools, setSchools);
+              }}
+              className="ml-auto"
+            >
+              <FaCheck
+                size={15}
+                className="transition-all duration-200 hover:scale-125 hover:fill-emerald-700"
+              ></FaCheck>
+            </button>
+          </div>
+        )}
         {schools.map((school) =>
           school.id !== editMode.id ? (
             <div key={school.id} className="flex flex-col gap-1">
@@ -165,71 +230,6 @@ export default function Education({
               </button>
             </div>
           )
-        )}
-        {/* Submit mode */}
-        {submitMode === 2 && (
-          <div className="flex flex-col gap-2 text-sm">
-            <input
-              className="bg-transparent"
-              type="text"
-              name="title"
-              value={newExperience.title}
-              onChange={handleInput}
-              placeholder="School"
-            />
-
-            <input
-              className="bg-transparent"
-              type="text"
-              name="location"
-              value={newExperience.location}
-              onChange={handleInput}
-              placeholder="Location"
-            />
-            <input
-              className="bg-transparent"
-              type="text"
-              name="positionDegree"
-              value={newExperience.positionDegree}
-              onChange={handleInput}
-              placeholder="Degree"
-            />
-            <input
-              className="bg-transparent"
-              type="text"
-              name="startdate"
-              value={newExperience.startdate}
-              onChange={handleInput}
-              placeholder="Start Date"
-            />
-            <input
-              className="bg-transparent"
-              type="text"
-              name="enddate"
-              value={newExperience.enddate}
-              onChange={handleInput}
-              placeholder="End Date"
-            />
-            <input
-              className="bg-transparent"
-              type="text"
-              name="description"
-              placeholder="Description"
-              value={newExperience.description}
-              onChange={handleInput}
-            />
-            <button
-              onClick={() => {
-                addExperience(schools, setSchools);
-              }}
-              className="ml-auto"
-            >
-              <FaCheck
-                size={15}
-                className="transition-all duration-200 hover:scale-125 hover:fill-emerald-700"
-              ></FaCheck>
-            </button>
-          </div>
         )}
       </div>
     </>
