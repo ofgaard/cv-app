@@ -20,7 +20,7 @@ export default function Personal({
 
   return (
     <>
-      <div className="flex flex-col items-center gap-7">
+      <div className="flex flex-col items-center gap-3 sm:gap-7">
         {/* Name */}
         <div className="flex flex-col items-center gap-1">
           <h1 className="text-5xl sm:text-6xl font-extrabold text-center">
@@ -28,9 +28,7 @@ export default function Personal({
               contacts.Name
             ) : (
               <input
-                className={`bg-transparent border-b ${
-                  !darkMode && "border-slate-800"
-                }  p-2 text-center text-base`}
+                className={`bg-transparent p-2 text-center text-base`}
                 type="text"
                 name="Name"
                 value={contacts.Name}
@@ -50,9 +48,7 @@ export default function Personal({
                 contacts.Phone
               ) : (
                 <input
-                  className={`bg-transparent border-b ${
-                    !darkMode && "border-slate-800"
-                  } max-w-96 text-center  max-h-7 p-2`}
+                  className={`bg-transparent text-xs max-w-96 text-center  max-h-7 p-2`}
                   type="text"
                   name="Phone"
                   value={contacts.Phone}
@@ -70,9 +66,7 @@ export default function Personal({
                 contacts.Email
               ) : (
                 <input
-                  className={`bg-transparent border-b ${
-                    !darkMode && "border-slate-800"
-                  } max-w-96 text-center max-h-7 p-2`}
+                  className={`bg-transparent text-xs max-w-96 text-center max-h-7 p-2`}
                   type="text"
                   name="Email"
                   value={contacts.Email}
@@ -90,9 +84,7 @@ export default function Personal({
                 contacts.Email
               ) : (
                 <input
-                  className={`bg-transparent border-b ${
-                    !darkMode && "border-slate-800"
-                  } max-w-96 text-center max-h-7  p-2`}
+                  className={`bg-transparent  max-w-96 text-center max-h-7  p-2`}
                   type="text"
                   name="Location"
                   value={contacts.Location}
