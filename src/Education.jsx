@@ -60,7 +60,7 @@ export default function Education({
             onSubmit={() => {
               addExperience(schools, setSchools);
             }}
-            className="flex flex-col gap-2 text-sm"
+            className="flex flex-col gap-2 sm:text-sm"
           >
             <input
               className="bg-transparent"
@@ -180,7 +180,7 @@ export default function Education({
               onSubmit={() => {
                 handleEdit(schools, setSchools);
               }}
-              className="flex flex-col gap-2 text-sm"
+              className="flex flex-col gap-2 sm:text-sm"
             >
               <input
                 className="bg-transparent"

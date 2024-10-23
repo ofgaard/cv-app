@@ -73,7 +73,7 @@ fill-orange-500
             onSubmit={() => {
               addExperience(jobs, setJobs);
             }}
-            className="flex flex-col gap-2 text-sm"
+            className="flex flex-col gap-2 sm:text-sm"
           >
             <input
               className="bg-transparent"
@@ -196,7 +196,7 @@ fill-orange-500
                 onSubmit={() => {
                   handleEdit(jobs, setJobs);
                 }}
-                className="flex flex-col gap-2 text-sm"
+                className="flex flex-col gap-2 sm:text-sm"
               >
                 <input
                   className="bg-transparent"

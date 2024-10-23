@@ -51,7 +51,7 @@ export default function Personal({
                 contacts.Phone
               ) : (
                 <input
-                  className={`bg-transparent text-xs max-w-96 text-center  max-h-7 p-2`}
+                  className={`bg-transparent sm:text-xs max-w-96 text-center max-h-7 p-2`}
                   type="text"
                   name="Phone"
                   value={contacts.Phone}
@@ -71,7 +71,7 @@ export default function Personal({
                 contacts.Email
               ) : (
                 <input
-                  className={`bg-transparent text-xs max-w-96 text-center max-h-7 p-2`}
+                  className={`bg-transparent sm:text-xs max-w-96 text-center max-h-7 p-2`}
                   type="text"
                   name="Email"
                   value={contacts.Email}
@@ -91,7 +91,7 @@ export default function Personal({
                 contacts.Email
               ) : (
                 <input
-                  className={`bg-transparent  max-w-96 text-center max-h-7  p-2 text-xs`}
+                  className={`bg-transparent  max-w-96 text-center max-h-7  p-2 sm:text-xs`}
                   type="text"
                   name="Location"
                   value={contacts.Location}
