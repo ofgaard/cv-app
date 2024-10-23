@@ -188,6 +188,7 @@ export default function Education({
                 name="title"
                 value={experienceToEdit.title}
                 onChange={handleInput}
+                placeholder="School"
               />
               <input
                 className="bg-transparent"
@@ -195,6 +196,7 @@ export default function Education({
                 name="location"
                 value={experienceToEdit.location}
                 onChange={handleInput}
+                placeholder="Location"
               />
               <input
                 className="bg-transparent"
@@ -202,6 +204,7 @@ export default function Education({
                 name="positionDegree"
                 value={experienceToEdit.positionDegree}
                 onChange={handleInput}
+                placeholder="Degree"
               />
               <input
                 className="bg-transparent"
@@ -209,6 +212,7 @@ export default function Education({
                 name="startdate"
                 value={experienceToEdit.startdate}
                 onChange={handleInput}
+                placeholder="Start Date"
               />{" "}
               <input
                 className="bg-transparent"
@@ -216,6 +220,7 @@ export default function Education({
                 name="enddate"
                 value={experienceToEdit.enddate}
                 onChange={handleInput}
+                placeholder="End Date"
               />
               <input
                 className="bg-transparent"
@@ -223,6 +228,7 @@ export default function Education({
                 name="description"
                 value={experienceToEdit.description}
                 onChange={handleInput}
+                placeholder="Description"
               />
               <button type="submit">
                 <FaCheck

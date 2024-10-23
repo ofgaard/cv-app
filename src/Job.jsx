@@ -204,6 +204,7 @@ fill-orange-500
                   name="title"
                   value={experienceToEdit.title}
                   onChange={handleInput}
+                  placeholder="Company"
                 />
                 <input
                   className="bg-transparent"
@@ -211,6 +212,7 @@ fill-orange-500
                   name="location"
                   value={experienceToEdit.location}
                   onChange={handleInput}
+                  placeholder="Location"
                 />
                 <input
                   className="bg-transparent"
@@ -218,6 +220,7 @@ fill-orange-500
                   name="positionDegree"
                   value={experienceToEdit.positionDegree}
                   onChange={handleInput}
+                  placeholder="Position"
                 />
                 <input
                   className="bg-transparent"
@@ -225,6 +228,7 @@ fill-orange-500
                   name="startdate"
                   value={experienceToEdit.startdate}
                   onChange={handleInput}
+                  placeholder="Start Date"
                 />{" "}
                 <input
                   className="bg-transparent"
@@ -232,6 +236,7 @@ fill-orange-500
                   name="enddate"
                   value={experienceToEdit.enddate}
                   onChange={handleInput}
+                  placeholder="End Date"
                 />
                 <input
                   className="bg-transparent"
@@ -239,6 +244,7 @@ fill-orange-500
                   name="description"
                   value={experienceToEdit.description}
                   onChange={handleInput}
+                  placeholder="Description"
                 />
                 <button className="ml-auto" type="submit">
                   <FaCheck
