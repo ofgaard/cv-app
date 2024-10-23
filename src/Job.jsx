@@ -32,14 +32,14 @@ export default function Job({
         } p-5 rounded-xl shadow-lg`}
       >
         {/* Top label/icons */}
-        <div className="flex flex-row print:flex-col justify-between items-center">
+        <div className="flex flex-col gap-3 sm:flex-row print:flex-col justify-between items-center">
           <div className="flex flex-row items-center gap-2">
             <MdWork className="icons fill-orange-500"></MdWork>
             <h5>Work Experience</h5>
           </div>
           <div>
             <button
-              className={`rounded-md min-w-16 text-xs px-1.5 py-1 bg-emerald-800 ${
+              className={`rounded-md min-w-16 text-xs py-0.5 sm:py-1 bg-emerald-800 ${
                 submitMode === 1 && "bg-yellow-700"
               } ${
                 !darkMode && "text-neutral-200"
@@ -188,8 +188,7 @@ export default function Job({
         {submitMode === 1 && (
           <div className="flex flex-col gap-2">
             {/* First line - job and location */}
-            <div className="flex flex-row justify-between">
-              {/* Submit Edit button */}
+            <div className="flex flex-row justify-between flex-wrap">
               <div className="flex flex-row gap-1">
                 <h4>
                   <input
