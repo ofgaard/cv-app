@@ -203,7 +203,7 @@ export default function Job({
               </div>
               <h2 className="text-xs">
                 <input
-                  className="bg-transparent text-right"
+                  className="bg-transparent sm:text-right"
                   type="text"
                   name="location"
                   value={newExperience.location}
@@ -213,7 +213,7 @@ export default function Job({
               </h2>
             </div>
             {/* Second line - Position and start/end date */}
-            <div className="flex flex-row justify-between">
+            <div className="flex flex-row justify-between flex-wrap">
               <h3>
                 <input
                   className="bg-transparent"
@@ -226,7 +226,7 @@ export default function Job({
               </h3>
               <div className="flex flex-col text-xs">
                 <input
-                  className="bg-transparent text-right"
+                  className="bg-transparent sm:text-right"
                   type="text"
                   name="startdate"
                   value={newExperience.startdate}
@@ -234,7 +234,7 @@ export default function Job({
                   placeholder="Start Date"
                 />
                 <input
-                  className="bg-transparent text-right"
+                  className="bg-transparent sm:text-right"
                   type="text"
                   name="enddate"
                   value={newExperience.enddate}
