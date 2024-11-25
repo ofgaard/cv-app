@@ -1,9 +1,3 @@
-import { useState } from "react";
-import { FcPhone } from "react-icons/fc";
-import { FcGlobe } from "react-icons/fc";
-import { FcContacts } from "react-icons/fc";
-import { CiEdit } from "react-icons/ci";
-import { FaRegFilePdf } from "react-icons/fa6";
 import { FaCheck } from "react-icons/fa";
 import { FiPhone } from "react-icons/fi";
 import { MdAlternateEmail } from "react-icons/md";
@@ -24,7 +18,6 @@ export default function Personal({
   return (
     <>
       <div className="flex flex-col items-center gap-3 sm:gap-7">
-        {/* Name */}
         <div className="flex flex-col items-center gap-1">
           <h1 className="text-5xl sm:text-6xl font-extrabold text-center">
             {!editContacts ? (
@@ -88,7 +81,7 @@ export default function Personal({
             )}
             <h2>
               {!editContacts ? (
-                contacts.Email
+                contacts.Location
               ) : (
                 <input
                   className={`bg-transparent  max-w-96 text-center max-h-7  p-2 sm:text-xs`}
